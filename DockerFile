@@ -1,0 +1,14 @@
+# Use a base image with Java and Maven installed
+FROM openjdk:17
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the JAR file built by Maven into the container
+COPY target/Ecommerce-order-service-0.0.1-SNAPSHOT.jar app.jar
+
+# Expose the port that the microservice will be running on
+EXPOSE 8081
+
+# Set the entry point command to run the microservice when the container starts
+ENTRYPOINT ["java", "-jar", "app.jar"]
